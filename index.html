@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>심쿵! 이름 궁합 테스트</title>
+    <script src="https://unpkg.com/hangul-js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+    <div id="inputView">
+        <div class="header">
+            <h1>💕 이름 궁합 테스트</h1>
+            <p>우리의 인연은 몇 퍼센트일까요?</p>
+        </div>
+
+        <div class="input-group">
+            <div class="input-wrapper">
+                <input type="text" id="name1" placeholder="이름" maxlength="4">
+            </div>
+            <div class="heart-icon">❤️</div>
+            <div class="input-wrapper">
+                <input type="text" id="name2" placeholder="이름" maxlength="4">
+            </div>
+        </div>
+        <button class="btn-start" onclick="startLoveTest()">결과 확인하기</button>
+    </div>
+
+    <div class="content-section" id="section1">
+        <div class="section-title">먼저, <span id="n1-title"></span>의 마음은...</div>
+        <div class="pyramid-container" id="pyramid1"></div>
+        <div class="result-score" id="result1">0%</div>
+        <button class="btn-start" style="margin-top: 20px;" onclick="goToSection2()">다음 확인 →</button>
+    </div>
+
+    <div class="content-section" id="section2">
+        <div class="section-title">그리고, <span id="n2-title"></span>의 마음은...</div>
+        <div class="pyramid-container" id="pyramid2"></div>
+        <div class="result-score" id="result2">0%</div>
+        <button class="btn-start" style="margin-top: 20px;" onclick="goToFinalResult()">최종 결과 보기</button>
+    </div>
+
+    <div class="content-section" id="section3">
+        <div class="final-card">
+            <h2 style="margin-bottom: 20px;">💘 우리의 최종 궁합 💘</h2>
+            <div class="final-score-circle">
+                <div class="val" id="finalScore">0%</div>
+            </div>
+            <div class="comparison-wrap">
+                <div class="comp-item">
+                    <p id="c-name1">이름1</p>
+                    <div id="compare1">0%</div>
+                </div>
+                <div class="comp-item">
+                    <p id="c-name2">이름2</p>
+                    <div id="compare2">0%</div>
+                </div>
+            </div>
+            <button class="btn-start" style="margin-top: 40px; background: #999;" onclick="location.reload()">다시 하기</button>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
