@@ -40,8 +40,7 @@ async function runPyramid(names, strokes, containerId, resultId) {
             rowDiv.appendChild(n);
         });
         container.appendChild(rowDiv);
-        
-        // 시각적 효과를 위한 딜레이
+    
         await new Promise(r => setTimeout(r, 400));
         
         if (current.length === 2) break;
@@ -101,4 +100,5 @@ function goToFinalResult() {
     document.getElementById('compare2').innerText = s2 + '%';
 
 }
+
 
