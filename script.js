@@ -9,19 +9,16 @@ const strokeCounts = {
 let s1 = 0, s2 = 0;
 let nameA = '', nameB = '';
 
-// 한 글자의 총 획수 계산
 function getStrokes(char) {
     if (!char || char === '☆') return 0;
     return Hangul.disassemble(char).reduce((acc, cur) => acc + (strokeCounts[cur] || 0), 0);
 }
 
-// 피라미드 애니메이션 및 계산 실행
 async function runPyramid(names, strokes, containerId, resultId) {
     const container = document.getElementById(containerId);
     const resultDiv = document.getElementById(resultId);
     container.innerHTML = '';
-    
-    // 글자 행 생성
+
     const labelRow = document.createElement('div');
     labelRow.className = 'row';
     names.forEach(n => {
@@ -57,7 +54,6 @@ async function runPyramid(names, strokes, containerId, resultId) {
     return parseInt(score);
 }
 
-// 테스트 시작 (첫 번째 사람 기준)
 async function startLoveTest() {
     nameA = document.getElementById('name1').value.trim();
     nameB = document.getElementById('name2').value.trim();
@@ -78,7 +74,6 @@ async function startLoveTest() {
     s1 = await runPyramid(combined, strokes, 'pyramid1', 'result1');
 }
 
-// 두 번째 섹션으로 이동 (두 번째 사람 기준)
 async function goToSection2() {
     document.getElementById('section1').classList.remove('active');
     document.getElementById('section2').classList.add('active');
@@ -94,7 +89,6 @@ async function goToSection2() {
     s2 = await runPyramid(combined, strokes, 'pyramid2', 'result2');
 }
 
-// 최종 결과 계산 및 출력
 function goToFinalResult() {
     document.getElementById('section2').classList.remove('active');
     document.getElementById('section3').classList.add('active');
@@ -105,4 +99,5 @@ function goToFinalResult() {
     document.getElementById('c-name2').innerText = nameB + ' 우선';
     document.getElementById('compare1').innerText = s1 + '%';
     document.getElementById('compare2').innerText = s2 + '%';
+
 }
